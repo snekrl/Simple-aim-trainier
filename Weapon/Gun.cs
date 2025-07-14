@@ -3,7 +3,7 @@ using UnityEngine;
 public class TargetingSystem : MonoBehaviour
 {
     public GameObject bulletObject;
-    public float bulletSpeed = 100f; 
+    public float bulletSpeed = 400f; 
     public Transform shootingPoint;
     public Camera playerCamera; 
 
@@ -25,7 +25,8 @@ public class TargetingSystem : MonoBehaviour
             }
 
             var bullet = Instantiate(bulletObject, shootingPoint.position, Quaternion.LookRotation(direction));
-            bullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+            bullet.GetComponent<Rigidbody>().linearVelocity = direction * bulletSpeed;
+
         }
     }
 }
